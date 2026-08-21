@@ -31,39 +31,6 @@ edge-resume-autofill/
 
 > 缺失字段（如求职意向、技术栈、自我评价）留空即可，插件不会误填；补全后重新导入。
 
-## 三、上传到 GitHub（代码托管 + 自动打包）
-> ⚠️ **重要：不要把 `resume_data.json`（含真实姓名/电话/邮箱/学校等）和证件照提交到 GitHub。** 本仓库已配置 `.gitignore` 自动排除这些文件。
-
-1. 在 GitHub 新建一个空仓库（例如 `edge-resume-autofill`），不要初始化 README
-2. 本地初始化并推送：
-   ```bash
-   cd edge-resume-autofill/
-   git init
-   git add .
-   git commit -m "init: resume autofill edge extension"
-   git branch -M main
-   git remote add origin https://github.com/你的用户名/edge-resume-autofill.git
-   git push -u origin main
-   ```
-3. 推送后 GitHub Actions 会自动运行 `build.yml`，校验 JS/JSON 并打包成 `edge-resume-autofill.zip` artifact
-4. 每次改代码或字段映射后 push，Actions 都会生成最新 zip，可在仓库 **Actions → 最新运行 → Artifacts** 下载
-
-> 提示：下载的 artifact zip 里如果只有 `resume_data.example.json` 占位，说明你没在本地放真实 `resume_data.json`。提交 Edge Add-ons 前，用本地 `npm run build` 生成包含真实数据的 zip。
-
-## 四、正式上架（部署上线）
-Edge 扩展通过 **Microsoft Edge Add-ons 商店** 分发：
-1. 注册 **Microsoft Partner Center** 开发人员账号（需付费认证，约 $19 个人或 $99 公司）
-   https://partner.microsoft.com/dashboard/microsoftedge
-2. 把本文件夹打包成 **.zip**（注意不要多套一层父目录）
-   ```bash
-   npm run build
-   ```
-   产物为 `edge-resume-autofill.zip`。
-3. 在 Partner Center → **概述 → 新建产品 → 扩展**，按向导上传 zip、填写名称/描述/图标/隐私政策
-4. 提交审核（通常 1–7 个工作日），通过后即上线，任何人可在 Edge Add-ons 搜索安装
-
-> 注：本扩展用 `<all_urls>` 在所有页面运行 content script，上架时需如实说明权限用途（自动填表），可改为仅匹配招聘域名以降低审核风险。
-
 ## 五、字段匹配说明
 - 单值字段（姓名/手机/邮箱/学校/专业/GPA…）按标签关键词匹配后填入 input / select
 - 多行经历（实习/项目/论文/获奖/技能）整段填入 textarea
