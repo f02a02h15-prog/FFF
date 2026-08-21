@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        width: 320px;
+        margin: 0;
+        font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+        color: #1f2329;
+        background: #f7f8fa;
+      }
+      header {
+        background: #2b6cff;
+        color: #fff;
+        padding: 14px 16px;
+      }
+      header h1 { font-size: 15px; margin: 0; }
+      header p { font-size: 12px; margin: 4px 0 0; opacity: .85; }
+      .body { padding: 14px 16px; }
+      .summary {
+        background: #fff;
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+      .summary b { color: #2b6cff; }
+      button {
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-bottom: 8px;
+      }
+      .primary { background: #2b6cff; color: #fff; }
+      .ghost { background: #fff; color: #2b6cff; border: 1px solid #2b6cff; }
+      .note { font-size: 11px; color: #8a8f99; line-height: 1.6; margin-top: 6px; }
+      #status { font-size: 12px; color: #2ba471; min-height: 16px; margin-top: 4px; }
+      textarea {
+        width: 100%; height: 90px; margin-top: 6px;
+        border: 1px solid #d0d3d9; border-radius: 6px; padding: 6px;
+        font-size: 12px; font-family: monospace; resize: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>简历自动填充助手</h1>
+      <p>读取本地简历数据，自动填表</p>
+    </header>
+    <div class="body">
+      <div class="summary" id="summary">加载中…</div>
+
+      <button class="primary" id="fillBtn">填充当前页面</button>
+      <button class="ghost" id="exportBtn">导出数据 (JSON)</button>
+      <button class="ghost" id="importBtn">导入数据 (JSON)</button>
+      <input type="file" id="importFile" accept="application/json" style="display:none" />
+
+      <div id="status"></div>
+      <div class="note">
+        敏感字段（身份证号、紧急联系人）默认不自动填充，需手动填写。<br />
+        缺失字段留空，可在 JSON 中补全后重新导入。
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

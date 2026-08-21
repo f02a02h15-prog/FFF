@@ -1,0 +1,15 @@
+{
+  "name": "edge-resume-autofill",
+  "version": "1.0.0",
+  "description": "读取本地简历数据，自动识别并填充各公司官网 / ATS 简历表单（Edge 扩展 / MV3）",
+  "scripts": {
+    "build": "node build.js",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true}); require('fs').rmSync('edge-resume-autofill.zip',{force:true})\""
+  },
+  "keywords": ["edge-extension", "autofill", "resume"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/你的用户名/edge-resume-autofill.git"
+  }
+}

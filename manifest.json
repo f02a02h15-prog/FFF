@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "简历自动填充助手",
+  "version": "1.0.0",
+  "description": "读取本地简历数据，自动识别并填充各公司官网 / ATS 简历表单。敏感字段（身份证、紧急联系人）默认不自动填。",
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "简历自动填充助手"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["fieldMap.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

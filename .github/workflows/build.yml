@@ -1,0 +1,43 @@
+name: Build Extension
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate JSON files
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('manifest.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('resume_data.example.json','utf8'))"
+
+      - name: Validate JS syntax
+        run: |
+          node --check background.js
+          node --check content.js
+          node --check fieldMap.js
+          node --check popup.js
+          node --check build.js
+
+      - name: Build zip
+        run: |
+          npm run build
+          ls -la edge-resume-autofill.zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: edge-resume-autofill
+          path: edge-resume-autofill.zip
+          if-no-files-found: error

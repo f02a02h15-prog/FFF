@@ -1,0 +1,96 @@
+{
+  "basic": {
+    "name": "你的姓名",
+    "gender": "你的性别",
+    "age": "你的年龄",
+    "birthDate": "YYYY.MM.DD",
+    "ethnicity": "你的民族",
+    "politicalStatus": "群众 / 共青团员 / 党员",
+    "hometown": "籍贯省市区",
+    "household": "户口所在地",
+    "residence": "现居城市",
+    "phone": "13800138000",
+    "email": "example@email.com",
+    "idNumber": "",
+    "photo": ""
+  },
+  "intention": {
+    "position": "目标岗位",
+    "industry": "期望行业",
+    "city": "期望城市",
+    "type": "全职 / 实习 / 均可",
+    "salary": "面议 / 具体范围",
+    "availableDate": "YYYY.MM",
+    "internDuration": "每周 X 天，持续 X 个月",
+    "relocation": "接受 / 不接受"
+  },
+  "education": [
+    {
+      "level": "硕士 / 本科",
+      "school": "学校名称",
+      "major": "专业名称",
+      "start": "YYYY.MM.DD",
+      "end": "YYYY.MM.DD",
+      "status": "在读 / 毕业",
+      "gpa": "X.X / X",
+      "rank": "前 X%",
+      "courses": "主修课程 1、主修课程 2、主修课程 3"
+    }
+  ],
+  "internships": [
+    {
+      "company": "公司名称",
+      "role": "岗位",
+      "start": "YYYY.MM",
+      "end": "YYYY.MM",
+      "bullets": [
+        "工作职责与成果 1",
+        "工作职责与成果 2"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "项目名称",
+      "role": "你的角色",
+      "start": "YYYY.MM",
+      "end": "YYYY.MM",
+      "bullets": [
+        "项目描述 1",
+        "项目描述 2"
+      ],
+      "techStack": "技术栈",
+      "link": "https://..."
+    }
+  ],
+  "publications": [
+    {
+      "title": "论文标题",
+      "journal": "期刊名称",
+      "date": "YYYY.MM.DD",
+      "impactFactor": "X.X",
+      "partition": "SCI X 区"
+    }
+  ],
+  "awards": [
+    {
+      "date": "YYYY.MM",
+      "name": "奖项名称",
+      "level": "国家级 / 省级 / 校级"
+    }
+  ],
+  "skills": {
+    "language": "英语：CET-6 / IELTS / TOEFL",
+    "data": "数据分析：Excel、SQL、SPSS...",
+    "tools": "工具：Python、Tableau、PowerBI...",
+    "other": "其他技能"
+  },
+  "certificates": "其他证书",
+  "campus": "校园 / 社团经历",
+  "selfEval": "100-200 字自我评价",
+  "emergency": {
+    "name": "",
+    "phone": ""
+  },
+  "sensitiveFields": ["basic.idNumber", "emergency.name", "emergency.phone"]
+}

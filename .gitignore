@@ -1,0 +1,26 @@
+# 真实简历数据（含姓名/电话/邮箱等个人隐私）
+# 本仓库只保留模板 resume_data.example.json，使用时复制为 resume_data.json
+resume_data.json
+
+# 证件照
+*.jpeg
+*.jpg
+*.png
+
+# 打包产物
+*.zip
+dist/
+build/
+
+# 依赖
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 编辑器/系统
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
